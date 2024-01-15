@@ -1,16 +1,28 @@
 # PET HEALTH MONITOR
 #### Video Demo:  https://youtu.be/FH3PCliw7u8
 #### Description:
+Final project for CS50's Introduction to Computer Science.
+
 Web application PET HEALTH MONITOR helps to keep track of your pets' vaccinations and other regular treatments, as well as to record pets' medical history and to plan visits to vet clinic. Having all records and medical tests results at one place maybe helpful for more precise diagnosis and better treatment especially if you change your vet clinic or veterinarian.
 
-## Technologies
-Project is created with:
-* flask and jinja
-* bootstrap 5
-* python 3
-* html
-* css
-* sqlite3
+## Architecture
+#### Frontend
+Languages:
+* HTML
+* CSS
+  
+Main Framework/Libraries:
+* Bootstrap 5
+
+#### Backend
+Languages:
+* Python 3
+  
+Main Framework/Libraries:
+* Flask
+  
+#### Database
+* SQLite3
 
 ## Content
 Web application has the next sections:
@@ -26,15 +38,6 @@ Web application has the next sections:
 
 To add or view information user must be logged in.
 
-## Structure
-Project consists of:
-* *app.py* (main project file)
-* *helpers.py* (function login_required)
-* database *pet.db*
-* *README.md*
-* directory *uploads* (for files uploaded by user)
-* directory *static* (with style.css)
-* directory *templates* (with .html pages; names of pages mostly display their function)
 
 ## Features
 Web application allows to:
@@ -51,10 +54,8 @@ Web application allows to:
 * main page also flashes notification if user possibly missed deadline for regular treatments or medical tests (user is supposed to check it manually and either to extend current deadline, or to add missing information, or to take the necessary action);
 * if there is no information to display, welcome (instructional) message is displayed with redirect to a relevant page (e.g. "you have no pets yet, start from adding a pet").
 
-## Inspiration
-Project inspired by my cat Bonifacius :).
-
-Structure of web application is based on Finance problem from Week 9 CS50x.
 
 ## Contact
 Anzhalika Dubasava, anzhalikad@gmail.com
+
+Linkedin: https://www.linkedin.com/in/adubasava/
