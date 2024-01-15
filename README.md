@@ -5,6 +5,14 @@ Final project for CS50's Introduction to Computer Science.
 
 Web application PET HEALTH MONITOR helps to keep track of your pets' vaccinations and other regular treatments, as well as to record pets' medical history and to plan visits to vet clinic. Having all records and medical tests results at one place maybe helpful for more precise diagnosis and better treatment especially if you change your vet clinic or veterinarian.
 
+## Screenshots
+<img src="https://github.com/adubasava/pet_health/assets/146720159/3ae071d5-6981-4c55-b0bd-f7f745dd5895" width="300">
+<img src="https://github.com/adubasava/pet_health/assets/146720159/3409e519-2c44-402a-9c94-0f8e113ffe86" width="300">
+<img src="https://github.com/adubasava/pet_health/assets/146720159/5cba63e6-5a80-4a2d-83ab-35369573fc99" width="300">
+<img src="https://github.com/adubasava/pet_health/assets/146720159/e66682fd-2399-4a77-bf48-cebef79b52fe" width="300">
+<img src="https://github.com/adubasava/pet_health/assets/146720159/48c09d44-dfea-4ebd-82f4-8998b3571423" width="300">
+<img src="https://github.com/adubasava/pet_health/assets/146720159/b3bf1b2d-1add-4d73-a51c-27c008f81358" width="300">
+
 ## Architecture
 #### Frontend
 Languages:
