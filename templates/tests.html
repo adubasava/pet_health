@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <h4>Medical tests and treatments</h4>
+
+   <table>
+    <thead>
+        <tr>
+            <th>Pet</th>
+            <th>Name</th>
+            <th>Test</th>
+            <th>Reason for</th>
+            <th>File (if uploaded)</th>
+            <th>Comments</th>
+            <th>Date of test</th>
+            <th>Date of re-test</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pet in pets %}
+        <tr id="abc">
+            <td>{{ pet.type }}</td>
+            <td>{{ pet.name }}</td>
+            <td>{{ pet.test }}</td>
+            <td>{{ pet.reason }}</td>
+            <td><a href="{{ pet.url }}">{{ pet.url }}</a></td>
+            <td data-rel="comments">{{ pet.comments }}</td>
+            <td>{{ pet.date_of_test }}</td>
+            <td>{{ pet.date_next }}</td>
+            <td>
+                <form action="/edit_tests" method="post">
+                    <input name="test_id" type="hidden" id="test_id" value="{{ pet.test_id }}" type="number">
+                    <button class="btn btn-success" type="submit">Edit</button>
+                </form>
+            </td>
+            <td>
+                <form action="/remove_tests" method="post" onsubmit="return confirm('Are you sure you wish to delete? You can\'t undo this action!');">
+                    <input name="test_id" type="hidden" id="test_id" value="{{ pet.test_id }}" type="number">
+                    <button class="btn btn-warning" type="submit">Remove</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

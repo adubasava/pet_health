@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    {% for visit in visit %}
+    <h4>Edit visit</h4>
+            <form action="/edit_history2" method="post">
+                <div class="mb-3">
+                    <select name="name">
+                        <option value="{{ visit.name }}" selected>{{ visit.name }}</option>
+                    </select>
+                </div>
+                <p>
+                    Edit date of visit: &nbsp;&nbsp;&nbsp;
+                    <input id="date_of" name="date_of" value="{{ visit.date_of_visit }}" type="date">
+                </p>
+                <p>
+                    Edit vet clinic: &nbsp;&nbsp;&nbsp;
+                    <input id="clinic" name="clinic" value="{{ visit.clinic }}" type="text">
+                </p>
+                <p>
+                    Edit veterinarian: &nbsp;&nbsp;&nbsp;
+                    <input id="veterinarian" name="veterinarian" value="{{ visit.veterinarian }}" type="text">
+                </p>
+                <p>
+                    Edit reason: &nbsp;&nbsp;&nbsp;
+                    <input id="reason" name="reason" value="{{ visit.reason }}" type="text">
+                </p>
+                <p>
+                    Edit diagnosis: &nbsp;&nbsp;&nbsp;
+                    <input id="diagnosis" name="diagnosis" value="{{ visit.diagnosis }}" type="text">
+                </p>
+                <p>
+                    Edit treatment: &nbsp;&nbsp;&nbsp;
+                    <input id="treatment" name="treatment" value="{{ visit.treatment }}" type="text">
+                </p>
+                <p>
+                    Edit comments: &nbsp;&nbsp;&nbsp;
+                    <input id="comments" name="comments" value="{{ visit.comments }}" type="text">
+                </p>
+                <p>
+                    Edit date of next visit: &nbsp;&nbsp;&nbsp;
+                    <input id="date_next" name="date_next" value="{{ visit.date_next }}" type="date">
+                </p>
+                <input name="visit_id" type="hidden" id="visit_id" value="{{ visit.visit_id }}" type="number">
+                <div class="mb-3">
+                    <button class="btn btn-primary" type="submit">Edit</button>
+                    <button class="btn btn-primary"><a href="/history" id="cancel">Cancel</a></button>
+                </div>
+            </form>
+    {% endfor %}
+{% endblock %}

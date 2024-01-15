@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    {% for pet in pet %}
+    <h4>Edit {{ pet.name }}</h4>
+    <form action="/edit2" method="post">
+        <div class="mb-3">
+            <select name="type">
+                <option selected disabled value="{{ pet.type }}">Select new type</option>
+                <option value="cat">Cat</option>
+                <option value="dog">Dog</option>
+                <option value="fish">Fish</option>
+                <option value="bird">Bird</option>
+                <option value="other">Other</option>
+            </select>
+            If other, specify: <input id="type-other" name="type-other" value="{{ pet.type }}" type="text">
+        </div>
+        <p>
+            Edit name: &nbsp;&nbsp;&nbsp;
+            <input id="name" name="name" value="{{ pet.name }}" type="text">
+        </p>
+        <p>
+            Edit date of birth: &nbsp;&nbsp;&nbsp;
+            <input id="dob" name="dob" type="date" value="{{ pet.date_of_birth }}">
+        </p>
+        <input name="pet_id" type="hidden" id="pet_id" value="{{ pet.pet_id }}" type="number">
+        <div class="mb-3">
+            <button class="btn btn-primary" type="submit">Edit</button>
+            <button class="btn btn-primary"><a href="/pets" id="cancel">Cancel</a></button>
+        </div>
+    </form>
+    {% endfor %}
+{% endblock %}

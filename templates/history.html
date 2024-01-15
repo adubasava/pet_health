@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+<h4>Visits to vet clinic</h4>
+
+<table>
+    <thead>
+        <tr>
+            <th>Pet</th>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Clinic</th>
+            <th>Veterinarian</th>
+            <th>Reason for a visit</th>
+            <th>Diagnosis</th>
+            <th>Treatment</th>
+            <th>Comments</th>
+            <th>Next date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pet in pets %}
+        <tr id="abc">
+            <td>{{ pet.type }}</td>
+            <td>{{ pet.name }}</td>
+            <td>{{ pet.date_of_visit }}</td>
+            <td>{{ pet.clinic }}</td>
+            <td>{{ pet.veterinarian }}</td>
+            <td>{{ pet.reason }}</td>
+            <td>{{ pet.diagnosis }}</td>
+            <td>{{ pet.treatment }}</td>
+            <td data-rel="comments">{{ pet.comments }}</td>
+            <td>{{ pet.date_next }}</td>
+            <td>
+                <form action="/edit_history" method="post">
+                    <input name="visit_id" type="hidden" id="visit_id" value="{{ pet.visit_id }}" type="number">
+                    <button class="btn btn-success" type="submit">Edit</button>
+                </form>
+            </td>
+            <td>
+                <form action="/remove_history" method="post" onsubmit="return confirm('Are you sure you wish to delete? You can\'t undo this action!');">
+                    <input name="visit_id" type="hidden" id="visit_id" value="{{ pet.visit_id }}" type="number">
+                    <button class="btn btn-warning" type="submit">Remove</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}

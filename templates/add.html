@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+<h3>{{ info }}</h3>
+
+    <h4>Add a pet</h4>
+    <form action="/add" method="post">
+        <div class="mb-3">
+            <select name="type">
+                <option selected disabled value="Type of a pet">Type of a pet</option>
+                <option value="cat">Cat</option>
+                <option value="dog">Dog</option>
+                <option value="fish">Fish</option>
+                <option value="bird">Bird</option>
+                <option value="other">Other</option>
+            </select>
+            If other, specify: <input id="type-other" name="type-other" placeholder="Type of a pet" type="text">
+        </div>
+        <p>
+            Name: &nbsp;&nbsp;&nbsp;
+            <input id="name" name="name" placeholder="Name" type="text">
+        </p>
+        <p>
+            Date of birth (if not known, choose arbitrary one): &nbsp;&nbsp;&nbsp;
+            <input id="dob" name="dob" type="date">
+        </p>
+        <div class="mb-3">
+            <button class="btn btn-primary" type="submit">Add</button>
+        </div>
+    </form>
+{% endblock %}

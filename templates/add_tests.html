@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+<h3>{{ info }}</h3>
+
+<h4>Add medical tests and examinations</h4>
+
+<form action="/add_tests" method="post" enctype=multipart/form-data>
+    <div class="mb-3">
+        <select name="name">
+            <option disabled selected>Pet's name</option>
+            {% for pet in pets %}
+            <option value="{{ pet.name }}">{{ pet.name }}</option>
+            {% endfor %}
+        </select>
+    <div class="mb-3">
+        <select name="test">
+            <option selected disabled value="Test">Test</option>
+            <option value="blood test">Common blood test</option>
+            <option value="biochemistry">Biochemistry profile</option>
+            <option value="urinalysis">Urinalysis</option>
+            <option value="ultrasound">Ultrasound examination</option>
+            <option value="other">Other</option>
+        </select>
+        If other, specify: <input id="test-other" name="test-other" placeholder="Test" type="text">
+    </div>
+
+        <div class="mb-3">
+            <select name="reason">
+                <option selected disabled value="reason">Reason for (optional)</option>
+                <option value="regular screening">Regular screening</option>
+                <option value="vet prescription">Prescribed by a vet</option>
+            </select>
+        </div>
+    <div class="input-group mb-3">
+        <input type="file" name="file" class="form-control" id="inputGroupFile02">
+        <label class="input-group-text" for="inputGroupFile02" value="Upload">Upload results (optional)</label>
+    </div>
+    <p>
+        Comments (optional): &nbsp;&nbsp;&nbsp;
+        <input id="comments" name="comments" placeholder="Comments" type="text">
+    </p>
+    <p>
+        Date of test/examination: &nbsp;&nbsp;&nbsp;
+        <input id="date_of" name="date_of" type="date">
+    </p>
+    <p>
+        Date of re-test/re-examination (if not specified, calculated automatically): &nbsp;&nbsp;&nbsp;
+        <input id="date_next" name="date_next" type="date">
+    </p>
+    <div class="mb-3">
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+</form>
+
+{% endblock %}

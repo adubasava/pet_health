@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    {% for treatment in treatment %}
+    <h4>Edit treatment</h4>
+            <form action="/edit_treat2" method="post">
+                <div class="mb-3">
+                    <select name="name">
+                        <option value="{{ treatment.name }}" selected>{{ treatment.name }}</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <select name="procedure">
+                        <option selected disabled value="Procedure type">{{ treatment.procedure }}</option>
+                        <option value="vaccination">Vaccination</option>
+                        <option value="deworming">Deworming</option>
+                        <option value="flee and tick treatment">Flee and tick treatment</option>
+                        <option value="other">Other</option>
+                    </select>
+                    If other, specify: <input id="procedure-other" name="procedure-other" placeholder="{{ treatment.procedure }}" type="text">
+                </div>
+                <p>
+                    Edit vaccine / drug: &nbsp;&nbsp;&nbsp;
+                    <input id="drug" name="drug" value="{{ treatment.drug }}" type="text">
+                </p>
+                <p>
+                    Edit date of procedure: &nbsp;&nbsp;&nbsp;
+                    <input id="date_of" name="date_of" value="{{ treatment.date_of_procedure }}" type="date">
+                </p>
+                <p>
+                    Edit valid until: &nbsp;&nbsp;&nbsp;
+                    <input id="name" name="valid_until" value="{{ treatment.valid_until }}" type="date">
+                </p>
+                <input name="treatment_id" type="hidden" id="treatment_id" value="{{ treatment.treatment_id }}" type="number">
+                <div class="mb-3">
+                    <button class="btn btn-primary" type="submit">Edit</button>
+                    <button class="btn btn-primary"><a href="/treat" id="cancel">Cancel</a></button>
+                </div>
+            </form>
+    {% endfor %}
+{% endblock %}

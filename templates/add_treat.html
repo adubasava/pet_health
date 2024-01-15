@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+<h3>{{ info }}</h3>
+
+   <h4>Add vaccinations and treatments</h4>
+
+   <form action="/add_treat" method="post">
+    <div class="mb-3">
+        <select name="name">
+            <option disabled selected>Pet's name</option>
+            {% for pet in pets %}
+            <option value="{{ pet.name }}">{{ pet.name }}</option>
+            {% endfor %}
+        </select>
+    <div class="mb-3">
+        <select name="procedure">
+            <option selected disabled value="Procedure type">Procedure</option>
+            <option value="vaccination">Vaccination</option>
+            <option value="deworming">Deworming</option>
+            <option value="flee and tick treatment">Flee and tick treatment</option>
+            <option value="other">Other</option>
+        </select>
+        If other, specify: <input id="procedure-other" name="procedure-other" placeholder="Procedure type" type="text">
+    </div>
+    <p>
+        Brand or name of vaccine / drug (optional): &nbsp;&nbsp;&nbsp;
+        <input id="drug" name="drug" placeholder="Brand or name" type="text">
+    </p>
+    <p>
+        Date of procedure: &nbsp;&nbsp;&nbsp;
+        <input id="date_of" name="date_of" type="date">
+    </p>
+    <p>
+        Valid until (if not specified, calculated automatically): &nbsp;&nbsp;&nbsp;
+        <input id="valid_until" name="valid_until" type="date">
+    </p>
+    <div class="mb-3">
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+</form>
+
+{% endblock %}

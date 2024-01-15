@@ -1,0 +1,167 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+    </div>
+    {% endfor %}
+
+    {% block page_content %}{% endblock %}
+</div>
+{% endblock %}
+
+
+{% block main %}
+<h5 id="h5_up">Upcoming events</h5>
+
+<h6 id="h6_up">Upcoming vaccinations and regular treatments</h6>
+<table>
+    <thead>
+        <tr>
+            <th>Pet</th>
+            <th>Name</th>
+            <th>Procedure</th>
+            <th>Valid until</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for treatment in treatments %}
+        <tr id="abc">
+            <td>{{ treatment.type }}</td>
+            <td>{{ treatment.name }}</td>
+            <td>{{ treatment.procedure }}</td>
+            <td>{{ treatment.valid_until }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h6 id="h6_up">Upcoming medical tests</h6>
+<table>
+    <thead>
+        <tr>
+            <th>Pet</th>
+            <th>Name</th>
+            <th>Test</th>
+            <th>Date of re-test</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for test in tests %}
+        <tr id="abc">
+            <td>{{ test.type }}</td>
+            <td>{{ test.name }}</td>
+            <td>{{ test.test }}</td>
+            <td>{{ test.date_next }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h6 id="h6_up">Upcoming visits to vet clinic</h6>
+<table>
+    <thead>
+        <tr>
+            <th>Pet</th>
+            <th>Name</th>
+            <th>Reason for previous visit</th>
+            <th>Diagnosis</th>
+            <th>Date of upcoming visit</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for visit in visits %}
+        <tr id="abc">
+            <td>{{ visit.type }}</td>
+            <td>{{ visit.name }}</td>
+            <td>{{ visit.reason }}</td>
+            <td>{{ visit.diagnosis }}</td>
+            <td>{{ visit.date_next }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h5 id="h5_last">Last events</h5>
+<h6 id="h6_last">Last vaccinations and regular treatments</h6>
+<table>
+    <thead>
+        <tr>
+            <th>Pet</th>
+            <th>Name</th>
+            <th>Procedure</th>
+            <th>Date of procedure</th>
+            <th>Valid until</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for last_treatment in last_treatments %}
+        <tr id="abc">
+            <td>{{ last_treatment.type }}</td>
+            <td>{{ last_treatment.name }}</td>
+            <td>{{ last_treatment.procedure }}</td>
+            <td>{{ last_treatment.date_of_procedure }}</td>
+            <td>{{ last_treatment.valid_until }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h6 id="h6_last">Last medical tests</h6>
+<table>
+    <thead>
+        <tr>
+            <th>Pet</th>
+            <th>Name</th>
+            <th>Test</th>
+            <th>Date of test</th>
+            <th>Date of re-test</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for last_test in last_tests %}
+        <tr id="abc">
+            <td>{{ last_test.type }}</td>
+            <td>{{ last_test.name }}</td>
+            <td>{{ last_test.test }}</td>
+            <td>{{ last_test.date_of_test }}</td>
+            <td>{{ last_test.date_next }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h6 id="h6_last">Last visits to vet clinic</h6>
+<table>
+    <thead>
+        <tr>
+            <th>Pet</th>
+            <th>Name</th>
+            <th>Date of visit</th>
+            <th>Reason for visit</th>
+            <th>Diagnosis</th>
+            <th>Date of next visit</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for last_visit in last_visits %}
+        <tr id="abc">
+            <td>{{ last_visit.type }}</td>
+            <td>{{ last_visit.name }}</td>
+            <td>{{ last_visit.date_of_visit }}</td>
+            <td>{{ last_visit.reason }}</td>
+            <td>{{ last_visit.diagnosis }}</td>
+            <td>{{ last_visit.date_next }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

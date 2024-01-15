@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    {% for test in test %}
+    <h4>Edit test</h4>
+            <form action="/edit_tests2" method="post">
+                <div class="mb-3">
+                    <select name="name">
+                        <option value="{{ test.name }}" selected>{{ test.name }}</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <select name="test">
+                        <option selected disabled value="Test">{{ test.test }}</option>
+                        <option value="blood test">Common blood test</option>
+                        <option value="biochemistry">Biochemistry profile</option>
+                        <option value="urinalysis">Urinalysis</option>
+                        <option value="ultrasound">Ultrasound examination</option>
+                        <option value="other">Other</option>
+                    </select>
+                    If other, specify: <input id="test-other" name="test-other" placeholder="{{ test.test }}" type="text">
+                </div>
+                <div class="mb-3">
+                    Edit reason: &nbsp;&nbsp;&nbsp;
+                    <select name="reason">
+                        <option selected disabled value="reason">{{ test.reason }}</option>
+                        <option value="regular screening">Regular screening</option>
+                        <option value="vet prescription">Prescribed by a vet</option>
+                    </select>
+                </div>
+                <p>
+                    Edit comments: &nbsp;&nbsp;&nbsp;
+                    <input id="comments" name="comments" value="{{ test.comments }}" type="text">
+                </p>
+                <p>
+                    Edit date of test: &nbsp;&nbsp;&nbsp;
+                    <input id="date_of" name="date_of" value="{{ test.date_of_test }}" type="date">
+                </p>
+                <p>
+                    Edit date of re-test: &nbsp;&nbsp;&nbsp;
+                    <input id="name" name="date_next" value="{{ test.date_next }}" type="date">
+                </p>
+                <input name="test_id" type="hidden" id="test_id" value="{{ test.test_id }}" type="number">
+                <div class="mb-3">
+                    <button class="btn btn-primary" type="submit">Edit</button>
+                    <button class="btn btn-primary"><a href="/tests" id="cancel">Cancel</a></button>
+                </div>
+            </form>
+    {% endfor %}
+{% endblock %}

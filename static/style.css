@@ -1,0 +1,116 @@
+/* Size for brand */
+nav .navbar-brand
+{
+    font-size: large;
+}
+
+/* Colors for brand */
+nav .navbar-brand .blue
+{
+    color: #537fbe;
+}
+nav .navbar-brand .red
+{
+    color: #ea433b;
+}
+nav .navbar-brand .yellow
+{
+    color: #f5b82e;
+}
+nav .navbar-brand .green
+{
+    color: #2e944b;
+}
+
+table
+{
+    margin: auto;
+    white-space: nowrap;
+}
+
+table tr td[data-rel='comments']
+{
+    text-align: left;
+    white-space: normal;
+    width: 250px;
+}
+
+td
+{
+
+    border: 0.5px solid #0000CD;
+    padding: 8px;
+}
+
+h3
+{
+    padding-top: 0px;
+    color: #006400;
+    padding-bottom: 15px;
+}
+
+h4
+{
+    padding: 10px;
+    color: #1E90FF;
+}
+
+h6
+{
+    padding-top: 20px;
+    color: #FF1493;
+    padding-bottom: 0px;
+}
+
+#h5_up
+{
+    padding-top: 0px;
+    color: #FF1493;
+    padding-bottom: 0px;
+}
+
+#h5_last
+{
+    padding-top: 40px;
+    color: #008B8B;
+    padding-bottom: 0px;
+}
+
+#h6_up
+{
+    padding-top: 25px;
+    color: #FF1493;
+    padding-bottom: 5px;
+}
+
+#h6_last
+{
+    padding-top: 25px;
+    color: #008B8B;
+    padding-bottom: 5px;
+}
+
+#abc:nth-child(odd)
+{
+    background-color : #6495ED;
+    color: #FFFAFA;
+    border: 0.5px solid #6495ED;
+}
+
+#abc:nth-child(even)
+{
+    border: 0.5px solid #6495ED;
+}
+
+
+#cancel
+{
+    color: white;
+    text-decoration: none;
+}
+
+input[type=date]
+{
+    font-family: Calibri;
+    color: #1E90FF;
+}

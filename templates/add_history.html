@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+<h3>{{ info }}</h3>
+
+<h4>Add visits to vet clinic</h4>
+
+<form action="/add_history" method="post">
+    <div class="mb-3">
+        <select name="name">
+            <option disabled selected>Pet's name</option>
+            {% for pet in pets %}
+            <option value="{{ pet.name }}">{{ pet.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <p>
+        Date of a visit: &nbsp;&nbsp;&nbsp;
+        <input id="date_of" name="date_of" type="date">
+    </p>
+    <p>
+        Vet clinic (optional): &nbsp;&nbsp;&nbsp;
+        <input id="clinic" name="clinic" placeholder="Vet clinic" type="text">
+    </p>
+    <p>
+        Veterinarian (optional): &nbsp;&nbsp;&nbsp;
+        <input id="veterinarian" name="veterinarian" placeholder="Veterinarian" type="text">
+    </p>
+    <p>
+        Reason for a visit: &nbsp;&nbsp;&nbsp;
+        <input id="reason" name="reason" placeholder="Reason for visit" type="text">
+    </p>
+    <p>
+        Diagnosis: &nbsp;&nbsp;&nbsp;
+        <input id="diagnosis" name="diagnosis" placeholder="Diagnosis" type="text">
+    </p>
+    <p>
+        Treatment: &nbsp;&nbsp;&nbsp;
+        <input id="treatment" name="treatment" placeholder="Treatment" type="text">
+    </p>
+    <p>
+        Comments (optional): &nbsp;&nbsp;&nbsp;
+        <input id="comments" name="comments" placeholder="Comments" type="text">
+    </p>
+    <p>
+        Date of the next visit: &nbsp;&nbsp;&nbsp;
+        <input id="date_next" name="date_next" type="date">
+    </p>
+    <div class="mb-3">
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+</form>
+
+
+
+{% endblock %}

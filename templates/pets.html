@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+   <h4>My pets</h4>
+
+   <table>
+    <thead>
+        <tr>
+            <th>Pet</th>
+            <th>Name</th>
+            <th>Date of birth</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pet in pets %}
+        <tr id="abc">
+            <td>{{ pet.type }}</td>
+            <td>{{ pet.name }}</td>
+            <td>{{ pet.date_of_birth }}</td>
+            <td>
+                <form action="/edit" method="post">
+                    <input name="pet_id" type="hidden" id="pet_id" value="{{ pet.pet_id }}" type="number">
+                    <button class="btn btn-success" type="submit">Edit</button>
+                </form>
+            </td>
+            <td>
+                <form action="/remove" method="post" onsubmit="return confirm('Are you sure you wish to delete? You can\'t undo this action!');">
+                    <input name="pet_id" type="hidden" id="pet_id" value="{{ pet.pet_id }}" type="number">
+                    <button class="btn btn-warning" type="submit">Remove</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
